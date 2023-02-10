@@ -1,0 +1,608 @@
+@charset "utf-8";
+
+#head{
+}
+#h_in{
+    position: relative;
+    width: 1260px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#h_in h1{
+    padding-top: 13px;
+}
+/*
+블럭요소의 기본성질에 의해 첫번째 자식태그의 margin-top과 막내 자식태그의 margin-bottom은 부모태그 경계 바깥으로 배치가 됨.
+즉 .logo에 magin-top을 쓰게 되면 부모태그가 시작하는 경계라인이 전체적으로 아래쪽으로 내려오게 되어 위치가 맞지않게 됨.
+그러나 float/flex 등 배열 상황에서는 예외.
+*/
+#h_in h1 a{
+    display: block;
+    width: 80px;
+    height: 90px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    text-indent: -99999px;
+}
+.utill{
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+.utill ul li{
+    float: left;
+}
+.utill ul li::before{
+    content: ""; /* 공간값만 필요 */
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #777;
+}
+.utill ul li:first-child::before{
+    display: none;
+}
+/*
+<가상태그>
+    - 스타일의 입력을 위해 가상의 캐그를 만들어 쓸 수 있음.
+    - 각 블럭요소 태그에는 2개의 가상태그를 추가 시킬 수 있음.
+    - 추가시키는 방법은
+        셀렉터::before -> 첫번째 자식 태그의 위치에 추가 됨.
+        셀렉터::after -> 막내 자식태그로 추가 됨.
+    - 가상태그영역을 만들기 위해서는 'content'속성을 필수로 입력해야함.
+    - 가상태그영역은 인라인 요소로 인식 됨.
+*/
+.utill ul li a{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #888;
+}
+.utill ul li a:hover{
+    color: #555;
+    text-decoration: underline;
+}
+.gnb{
+    position: absolute;
+    top: 50px;
+    right: 0;
+}
+.gnb ul li{
+    float: left;
+    margin-left: 40px;
+}
+.gnb ul li a{
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: #333;
+}
+.gnb ul li a:hover{
+    color: #027043;
+}
+
+/* 본문 1 */
+.mainslide{
+    margin-bottom: 120px;
+    overflow: hidden;
+}
+.ms_img{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ms_box{
+    margin-left: -330px;
+}
+
+/* 본문 2 */
+.news{
+    position: relative;
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+}
+.news h2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    color: #444;
+}
+.n_more{
+    position: absolute;
+    top: 49px;
+    right: 0;
+}
+.n_more a{
+    font-size: 13px;
+    color: #777;
+}
+.more_icon::after{
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 11px;
+    margin-left: 10px;
+    background-image: url(../img/arr_7x11.png);
+}
+.n_list ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.n_list ul li{
+    float: left;
+    margin-right: 14px;
+}
+.n_list ul li:last-child{
+    margin-right: 0;
+}
+.n_list ul .big{
+    width: 760px;
+}
+.n_list ul .small{
+    width: 236px;
+    margin-top: 154px;
+}
+.n_photo{
+    margin-bottom: 16px;
+}
+.n_photo img{
+    width: 100%;
+    height: auto;
+}
+.n_tittle{
+    margin-left: 20px;
+    margin-bottom: 10px;
+    color: #666;
+}
+.n_date{
+    margin-left: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #666;
+}
+
+/* 본문 3 */
+.reward{
+    margin-bottom: 120px;
+    background-color: antiquewhite;
+}
+.r_in{
+    width: 790px;
+    height: 100px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(../img/main03.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.r_in h2{
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #444;
+}
+.r_in p{
+    font-size: 16px;
+    color: #666;
+}
+
+/* 본문 4 */
+.item{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+}
+.item h2{
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #444;
+}
+.i_list{
+    margin-bottom: 100px;
+}
+.i_list ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.i_list ul li{
+    float: left;
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+}
+.i_list ul li:last-child{
+    margin-right: 0;
+}
+.i_photo{
+    border: 1px solid #ddd;
+    margin-bottom: 17px;
+}
+.i_photo img{
+    width: 100%;
+    height: auto;
+}
+.i_cate{
+    margin-left: 10px;
+    font-size: 13px;
+    color: #999;
+}
+.i_name{
+    margin-left: 10px;
+    color: #444;
+}
+.i_more{
+    width: 298px;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+}
+.i_more a{
+    display: block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+}
+
+/* 본문 5 */
+.magazine{
+    margin-bottom: 120px;
+    background-color: antiquewhite;
+}
+.mg_in{
+    width: 790px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-image: url(../img/main05_bg.png);
+    background-repeat: no-repeat;
+    background-position: left 0 center;
+}
+.mg_in::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.mg_box{
+    float: right;
+    padding-top: 115px;
+    background-image: url(../img/main05_logo.png);
+    background-repeat: no-repeat;
+}
+.mg_box h2{
+    margin-bottom: 11px;
+    font-family: 'Lato', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #4c3b24;
+}
+.mg_box .text{
+    margin-bottom: 23px;
+    font-size: 15px;
+    color: #6c522d;
+}
+.mg_box .link a{
+    display: block;
+    width: 138px;
+    border: 1px solid #6c522d;
+    line-height: 38px;
+    text-align: center;
+    font-size: 14px;
+    color: #6c522d;
+}
+
+/* 본문 6 */
+.collabo{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 120px;
+}
+.collabo h2{
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #444;
+}
+.collabo_list{
+    margin-bottom: 100px;
+}
+.collabo_list ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.collabo_list ul li{
+    float: left;
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+}
+.collabo_list ul li:last-child{
+    margin-right: 0;
+}
+.cb_photo{
+    border: 1px solid #ddd;
+    margin-bottom: 17px;
+}
+.cb_photo img{
+    width: 100%;
+    height: auto;
+}
+.cb_cate{
+    margin-left: 10px;
+    font-size: 13px;
+    color: #999;
+}
+.cb_name{
+    margin-left: 10px;
+    color: #444;
+}
+.cb_more{
+    width: 298px;
+    border: 1px solid #ccc;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cb_more a{
+    display: block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+}
+
+/* 본문 7 */
+.service{
+    padding-top: 85px;
+    padding-bottom: 85px;
+    background-color: blanchedalmond;
+}
+.service_in{
+    width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.service_in h2{
+    margin-bottom: 3px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #4c3b24;
+}
+.service_ment{
+    margin-bottom: 26px;
+    color: #6c522d;
+}
+.service_list ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.service_list ul li{
+    float: left;
+    width: 240px;
+    margin-right: 30px;
+}
+.service_list ul li:last-child{
+    margin-right: 0;
+}
+.sv_photo{
+    margin-bottom: 30px;
+    border: 1px solid #beb5ae;
+    padding: 4px;
+    border-radius: 50%;
+    /*
+        border-radius 속성 : 모서리를 둥글게 만드는 속성.
+        - 원하는 크기를 px 또는 %로 입력.
+        - 정사각형 공간에 border-radius를 50%로 입력하면 원모양이 만들어짐.
+    */
+    overflow: hidden;
+}
+.sv_photo img{
+    border-radius: 50%;
+}
+.sv_tema{
+    color: #777;
+}
+.sv_name{
+    font-size: 20px;
+    color: #4c3b24;
+}
+.sv_name span{
+    vertical-align: top;
+    font-size: 9px; /* 읽어들일 수 있는 가장 작은 폰트사이즈 9 */
+}
+
+/* 푸터1 - 수상내역 */
+.f_award{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    background-color: rgb(39, 38, 38);
+}
+.f_award_in{
+    width: 1258px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.f_award ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.f_award ul li{
+    float: left;
+    height: 40px;
+    margin-right: 42px;
+    text-indent: -99999px;
+}
+.f_award ul li:last-child{
+    margin-right: 0;
+}
+.f_award ul .fa1{
+    width: 141px;
+    background-image: url(../img/footer_award_2211_01.jpg);
+}
+.f_award ul .fa2{
+    width: 141px;
+    background-image: url(../img/footer_award_2211_02.jpg);
+}
+.f_award ul .fa3{
+    width: 140px;
+    background-image: url(../img/footer_award_2211_03.jpg);
+}
+.f_award ul .fa4{
+    width: 228px;
+    background-image: url(../img/footer_award_2211_04.jpg);
+}
+.f_award ul .fa5{
+    width: 228px;
+    background-image: url(../img/footer_award_2211_05.jpg);
+}
+.f_award ul .fa6{
+    width: 170px;
+    background-image: url(../img/footer_award_2211_06.jpg);
+}
+
+/* 푸터2 - 메뉴 */
+.f_menu{
+    background-color: rgb(34, 26, 26);
+    border-bottom: 1px solid #494542;
+}
+.f_menu_in{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+.f_menu ul li{
+    display: inline-block;
+}
+.f_menu ul li::after{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 1px;
+    height: 10px;
+    margin-top: 8px;
+    margin-left: 10px;
+    margin-right: 8px;
+    background-color: #5f5a57;
+}
+.f_menu ul li:last-child::after{
+    display: none;
+}
+.f_menu ul li a{
+    font-size: 14px;
+    color: #a9a19f;
+}
+.f_menu_in .point a{
+    color: #027043;
+}
+
+/* 푸터3 - 사이트맵 */
+.f_bottom{
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background-color: rgb(34, 26, 26);
+}
+.f_bottom_in{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.f_bottom_in::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.f_sitemap{
+    float: left;
+}
+.f_sitemap::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.f_sitemap div{
+    float: left;
+    margin-right: 70px;
+}
+.f_sitemap div dt{
+    margin-bottom: 10px;
+}
+.f_sitemap div dt a{
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+.f_sitemap div dd p{
+    margin-bottom: 3px;
+}
+.f_sitemap div dd a{ 
+    font-size: 14px;
+    color: #a9a19f;
+}
+.two dl:first-child{
+    margin-bottom: 45px;
+}
+
+/* 푸터4 - 버튼 */
+.f_box{
+    float: right;
+}
+.f_btns ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.f_btns ul{
+    margin-bottom: 15px;
+}
+.f_btns ul li{
+    float: left;
+    margin-left: 5px;
+}
+.f_btns ul li a{
+    display: block;
+    width: 128px;
+    border: 1px solid #fff;
+    line-height: 36px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+.f_co{
+    text-align: right;
+}
+.f_co .fco_1{
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.7em;
+    color: #a9a19f;
+}
+.f_co .fco_2{
+    font-size: 13px;
+    color: #a9a19f;
+}
